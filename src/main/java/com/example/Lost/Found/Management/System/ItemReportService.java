@@ -1,17 +1,26 @@
 package com.example.Lost.Found.Management.System;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Date;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Service
 public class ItemReportService {
-    private final List<ItemReport> reports = new ArrayList<>();
+
+    private final List<ItemReport> reports =
+            new ArrayList<>();
+
     private Long nextId = 1L;
 
+    public ItemReport addReport(
+            itemReportCreateRequest request
+    ) {
 
-    public ItemReport addReport(itemReportCreateRequest request)
-    {
-        ItemReport report = new ItemReport();
+        ItemReport report =
+                new ItemReport();
+
         report.setId(nextId);
         nextId++;
 
@@ -39,6 +48,7 @@ public class ItemReportService {
 
         return report;
     }
+
     public List<ItemReport> getAllReports() {
 
         return reports;
@@ -55,6 +65,7 @@ public class ItemReportService {
 
         return null;
     }
+
     public boolean deleteReport(Long id) {
 
         ItemReport report =
@@ -69,4 +80,3 @@ public class ItemReportService {
         return true;
     }
 }
-
