@@ -15,9 +15,10 @@ public class ItemReportController {
     ) {
         this.itemReportService = itemReportService;
     }
+
     @PostMapping
     public ItemReport addReport(
-            @RequestBody itemReportCreateRequest request
+            @RequestBody ItemReportCreateRequest request
     ) {
 
         return itemReportService.addReport(request);
@@ -28,6 +29,7 @@ public class ItemReportController {
 
         return itemReportService.getAllReports();
     }
+
     @GetMapping("/{id}")
     public ItemReport getReportById(
             @PathVariable Long id
@@ -35,6 +37,7 @@ public class ItemReportController {
 
         return itemReportService.getReportById(id);
     }
+
     @DeleteMapping("/{id}")
     public String deleteReport(
             @PathVariable Long id
@@ -49,5 +52,4 @@ public class ItemReportController {
 
         return "Report not found";
     }
-
 }
