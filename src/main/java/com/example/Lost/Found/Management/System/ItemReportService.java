@@ -15,7 +15,7 @@ public class ItemReportService {
     private Long nextId = 1L;
 
     public ItemReport addReport(
-            itemReportCreateRequest request
+            ItemReportCreateRequest request
     ) {
 
         ItemReport report =
