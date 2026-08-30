@@ -28,4 +28,11 @@ public class ItemReportController {
 
         return itemReportService.getAllReports();
     }
+    @GetMapping("/{id}")
+    public ItemReport getReportById(
+            @PathVariable Long id
+    ) {
+
+        return itemReportService.getReportById(id);
+    }
 }
