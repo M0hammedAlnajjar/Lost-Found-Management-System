@@ -35,4 +35,19 @@ public class ItemReportController {
 
         return itemReportService.getReportById(id);
     }
+    @DeleteMapping("/{id}")
+    public String deleteReport(
+            @PathVariable Long id
+    ) {
+
+        boolean deleted =
+                itemReportService.deleteReport(id);
+
+        if (deleted) {
+            return "Report deleted successfully";
+        }
+
+        return "Report not found";
+    }
+
 }
