@@ -39,5 +39,9 @@ public class ItemReportService {
 
         return report;
     }
+    public List<ItemReport> getAllReports() {
+
+        return reports;
+    }
 }
 
