@@ -52,4 +52,15 @@ public class ItemReportController {
 
         return "Report not found";
     }
+    @PutMapping("/{id}")
+    public ItemReport updateReport(
+            @PathVariable Long id,
+            @RequestBody ItemReportUpdateRequest request
+    ) {
+
+        return itemReportService.updateReport(
+                id,
+                request
+        );
+    }
 }
