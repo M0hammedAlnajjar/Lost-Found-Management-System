@@ -79,4 +79,38 @@ public class ItemReportService {
 
         return true;
     }
+    public ItemReport updateReport(
+            Long id,
+            ItemReportUpdateRequest request
+    ) {
+
+        ItemReport report =
+                getReportById(id);
+
+        if (report == null || request == null) {
+            return null;
+        }
+
+        report.setItemName(
+                request.getItemName()
+        );
+
+        report.setDescription(
+                request.getDescription()
+        );
+
+        report.setLocation(
+                request.getLocation()
+        );
+
+        report.setReportType(
+                request.getReportType()
+        );
+
+        report.setStatus(
+                request.getStatus()
+        );
+
+        return report;
+    }
 }
