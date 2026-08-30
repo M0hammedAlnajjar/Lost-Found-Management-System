@@ -43,5 +43,17 @@ public class ItemReportService {
 
         return reports;
     }
+
+    public ItemReport getReportById(Long id) {
+
+        for (ItemReport report : reports) {
+
+            if (report.getId().equals(id)) {
+                return report;
+            }
+        }
+
+        return null;
+    }
 }
 
