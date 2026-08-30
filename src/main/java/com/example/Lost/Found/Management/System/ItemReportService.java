@@ -55,5 +55,18 @@ public class ItemReportService {
 
         return null;
     }
+    public boolean deleteReport(Long id) {
+
+        ItemReport report =
+                getReportById(id);
+
+        if (report == null) {
+            return false;
+        }
+
+        reports.remove(report);
+
+        return true;
+    }
 }
 
