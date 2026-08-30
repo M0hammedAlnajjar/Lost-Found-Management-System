@@ -91,25 +91,45 @@ public class ItemReportService {
             return null;
         }
 
-        report.setItemName(
-                request.getItemName()
-        );
+        if (request.getItemName() != null
+                && !request.getItemName().isBlank()) {
 
-        report.setDescription(
-                request.getDescription()
-        );
+            report.setItemName(
+                    request.getItemName()
+            );
+        }
 
-        report.setLocation(
-                request.getLocation()
-        );
+        if (request.getDescription() != null
+                && !request.getDescription().isBlank()) {
 
-        report.setReportType(
-                request.getReportType()
-        );
+            report.setDescription(
+                    request.getDescription()
+            );
+        }
 
-        report.setStatus(
-                request.getStatus()
-        );
+        if (request.getLocation() != null
+                && !request.getLocation().isBlank()) {
+
+            report.setLocation(
+                    request.getLocation()
+            );
+        }
+
+        if (request.getReportType() != null
+                && !request.getReportType().isBlank()) {
+
+            report.setReportType(
+                    request.getReportType()
+            );
+        }
+
+        if (request.getStatus() != null
+                && !request.getStatus().isBlank()) {
+
+            report.setStatus(
+                    request.getStatus()
+            );
+        }
 
         return report;
     }
