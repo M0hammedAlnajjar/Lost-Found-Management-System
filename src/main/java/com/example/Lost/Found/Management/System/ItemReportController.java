@@ -1,5 +1,6 @@
 package com.example.Lost.Found.Management.System;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -53,14 +54,26 @@ public class ItemReportController {
         return "Report not found";
     }
     @PutMapping("/{id}")
-    public ItemReport updateReport(
+    public ResponseEntity<ItemReport> updateReport(
             @PathVariable Long id,
             @RequestBody ItemReportUpdateRequest request
     ) {
 
-        return itemReportService.updateReport(
-                id,
-                request
+        ItemReport updatedReport =
+                itemReportService.updateReport(
+                        id,
+                        request
+                );
+
+        if (updatedReport == null) {
+
+            return ResponseEntity
+                    .notFound()
+                    .build();
+        }
+
+        return ResponseEntity.ok(
+                updatedReport
         );
     }
 }
