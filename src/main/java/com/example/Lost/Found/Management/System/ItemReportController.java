@@ -1,9 +1,8 @@
 package com.example.Lost.Found.Management.System;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/reports")
@@ -18,9 +17,15 @@ public class ItemReportController {
     }
     @PostMapping
     public ItemReport addReport(
-            @RequestBody ItemReportCreateRequest request
+            @RequestBody itemReportCreateRequest request
     ) {
 
         return itemReportService.addReport(request);
+    }
+
+    @GetMapping
+    public List<ItemReport> getAllReports() {
+
+        return itemReportService.getAllReports();
     }
 }
